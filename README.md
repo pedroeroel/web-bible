@@ -2,7 +2,7 @@
 
 # Freight Calculator
 
-[!BRAND]('img/brand.png')
+![Brand Image](/img/brand.png)
 
 ## Status
 
