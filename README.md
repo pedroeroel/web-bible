@@ -2,6 +2,8 @@
 
 # Freight Calculator
 
+[!BRAND]('img/brand.png')
+
 ## Status
 
 ✅ Completed
