@@ -1,6 +1,6 @@
 ### Curso Técnico de Desenvolvimento de Sistemas - SENAI Itapeva
 
-# Freight Calculator
+# What Cat Am I?
 
 ![Brand Image](/img/brand.png)
 
@@ -9,7 +9,7 @@
 ✅ Completed
 
 **Description:**
-This project consists on a web app that calculates freights.
+This project is a fun web app that helps you discover your inner cat!
 
 ## Index
 * [Features](#features)
@@ -19,8 +19,8 @@ This project consists on a web app that calculates freights.
 * [Credits](#credits)
 
 ## Features
- - Freight calculation by weight and CEP.
- 
+ - Discover your cat personality based on your answers!
+
 ## Tools & Technology
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
@@ -39,4 +39,4 @@ This project is licensed on MIT's license - read LICENSE.txt for more.
 
 ## Credits
 
-This project uses [BrasilAPI](https://brasilapi.com.br)
+This project uses the [The Cat API](https://thecatapi.com/) to get cat pictures.
