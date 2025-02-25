@@ -4,55 +4,37 @@
 
 {% block aboutpage %}Just a common home page.{% endblock %}
 
-{% block stitle %}Freight Calculator{% endblock %}
+{% block stitle %}What Cat Am I? 😺{% endblock %}
 
 {% block content %}
 <form action="/" method="post" class="max-w-sm mx-auto flex flex-col gap-3">
     
-    <div class="relative">
+    <div class="">
     
-        <label for="cep" class="block mb-2 text-sm font-medium text-gray-900">CEP:</label>
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Your Name:</label>
     
-        <div class="absolute -inset-y-7 start-0 top-0 flex items-center ps-3.5 pointer-events-none">
-    
-            <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                <path d="M8 0a7.992 7.992 0 0 0-6.583 12.535 1 1 0 0 0 .12.183l.12.146c.112.145.227.285.326.4l5.245 6.374a1 1 0 0 0 1.545-.003l5.092-6.205c.206-.222.4-.455.578-.7l.127-.155a.934.934 0 0 0 .122-.192A8.001 8.001 0 0 0 8 0Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/>
-            </svg>
-    
-        </div>
-    
-        <input type="text" maxlength=8 name="cep" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Insert 12345678 or 12345-678" pattern="^\d{8}?$" required />
-    
-    </div>
-    
-    <div class="relative">
-        
-        <label for="weight" class="block mb-2 text-sm font-medium text-gray-900">Weight (grams):</label>
-        
-        <div class="absolute -inset-y-7 start-0 top-0 flex items-center ps-3.5 pointer-events-none">
-            
-            <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                <path fill-rule="evenodd" d="M12 2.25a.75.75 0 0 1 .75.75v.756a49.106 49.106 0 0 1 9.152 1 .75.75 0 0 1-.152 1.485h-1.918l2.474 10.124a.75.75 0 0 1-.375.84A6.723 6.723 0 0 1 18.75 18a6.723 6.723 0 0 1-3.181-.795.75.75 0 0 1-.375-.84l2.474-10.124H12.75v13.28c1.293.076 2.534.343 3.697.776a.75.75 0 0 1-.262 1.453h-8.37a.75.75 0 0 1-.262-1.453c1.162-.433 2.404-.7 3.697-.775V6.24H6.332l2.474 10.124a.75.75 0 0 1-.375.84A6.723 6.723 0 0 1 5.25 18a6.723 6.723 0 0 1-3.181-.795.75.75 0 0 1-.375-.84L4.168 6.241H2.25a.75.75 0 0 1-.152-1.485 49.105 49.105 0 0 1 9.152-1V3a.75.75 0 0 1 .75-.75Zm4.878 13.543 1.872-7.662 1.872 7.662h-3.744Zm-9.756 0L5.25 8.131l-1.872 7.662h3.744Z" clip-rule="evenodd" />
-            </svg>
-                
-        </div>
-    
-        <input type="text" name='weight' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5" placeholder="Insert the weight in grams" required />
+        <input type="text" value="{% if input %}{{ input }}{% endif %}" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Insert your name" required />
     
     </div>
         
+    <div class="w-auto flex justify-end">
+        <button type="submit" data-ripple-dark="true" class="bg-blue-600 rounded-lg text-white font-medium px-2 py-1 transition duration-300 hover:bg-transparent border-blue-600 border-2 hover:text-blue-600 w-full">Discover My Cat</button>
+    </div>
 
-    {% if freight %}
-    <p class="mt-2 text-sm text-gray-700 font-medium">The freight is <a class="text-green-600">{{ freight }}</a>.</p>
-    {% elif msg %}
-    <p class="mt-2 text-sm text-red-700 font-medium">{{ msg }}</p>
+    {% if msg %}
+
+    <p class="w-full text-red-600 font-medium">{{ msg }}</p>
+
     {% endif %}
 
-    <div class="w-auto flex justify-end">
-        <button type="submit" data-ripple-dark="true" class="bg-blue-600 rounded-lg text-white font-medium px-2 py-1 transition duration-300 hover:bg-transparent border-blue-600 border-2 hover:text-blue-600">Calculate</button>
-    </div>
-
-
 </form>
-    
+
+{% if catURL %}
+
+<div class="max-w-200 overflow-hidden h-fit border-1 border-gray-300 rounded-4xl my-12 mx-auto"><img src="{{ catURL }}" class="w-full" alt=""></div>
+
+{% endif %}
+
+<hr class="border-gray-400 my-6 h-px">
+
 {% endblock %}

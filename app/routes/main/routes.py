@@ -16,9 +16,11 @@ def index():
 
         if response.status_code == 200:
             data = response.json()
-            catURL = data['url']
+            catURL = data[0]['url']
             
-            return render_template('index.html', catURL=catURL)
+            input = request.form.get('name')
+
+            return render_template('index.html', catURL=catURL, input=input)
         
         elif response.status_code == 400:
 
