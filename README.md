@@ -19,7 +19,7 @@ This project is a fun web app that helps you discover your inner cat!
 * [Credits](#credits)
 
 ## Features
- - Discover your cat personality based on your answers!
+ - Receive a random image of a cat!
 
 ## Tools & Technology
 
