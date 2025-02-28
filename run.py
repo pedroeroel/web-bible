@@ -4,6 +4,8 @@ from app.config import *
 app = create_app()
 
 
-if environment == 'development':
-    if __name__ == '__main__':
+if __name__ == '__main__':
+    if environment == 'development':
         app.run(debug=True)
+    else:
+        app.run()
