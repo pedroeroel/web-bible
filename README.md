@@ -35,10 +35,9 @@ This project is a web application that allows users to search and read Bible ver
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)  
 
 ## Usage
-- Open your browser and go [to this link](https://)
-- Use the search bar to find specific verses.
-- Click "Random Verse" for a daily scripture.
-- Switch between translations using the settings menu.
+- Open your browser and [go to this link](https://web-bible.vercel.app).
+- Use the inputs to find specific verses.
+- Select your preferred translation.
 
 ## Author
 - Pedro Eduardo Roel - [github.com/pedroeroel](https://github.com/pedroeroel) - pedroedroel@gmail.com
