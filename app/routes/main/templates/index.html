@@ -1,40 +1,133 @@
 {% extends 'model.html' %}
 
-{% block pagetitle %}Cats{% endblock %}
+{% block pagetitle %}Bible Verses{% endblock %}
 
-{% block aboutpage %}Just an uncommon cat page.{% endblock %}
+{% block aboutpage %}Find any Bible verse!{% endblock %}
 
-{% block stitle %}What Cat Am I? 😺{% endblock %}
+{% block stitle %}Find a Verse! 📖{% endblock %}
 
 {% block content %}
-<form action="/" method="post" class="max-w-sm mx-auto flex flex-col gap-3">
-    
-    <div class="">
-    
-        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Your Name:</label>
-    
-        <input type="text" value="{% if input %}{{ input }}{% endif %}" name="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Insert your name" required />
-    
-    </div>
+<div class="w-full grid grid-rows-1 grid-cols-1 items-start gap-5 my-5">
+    <form action="/" method="post" class="{% if verse_text %}col-span-1 mx-auto{% else %}col-span-2 mx-auto{% endif %}">
+        <div class="grid max-h-fit gap-3 items-center {% if msg %}grid-rows-5{% else %}grid-rows-4{% endif %} grid-cols-2">
+            <div class="col-span-2 row-span-1">
+                <label for="book" class="block mb-2 text-sm font-medium text-gray-900">Bible Book</label>
+                <select name="book" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+                    <option value="Genesis">Genesis</option>
+                    <option value="Exodus">Exodus</option>
+                    <option value="Leviticus">Leviticus</option>
+                    <option value="Numbers">Numbers</option>
+                    <option value="Deuteronomy">Deuteronomy</option>
+                    <option value="Joshua">Joshua</option>
+                    <option value="Judges">Judges</option>
+                    <option value="Ruth">Ruth</option>
+                    <option value="1 Samuel">1 Samuel</option>
+                    <option value="2 Samuel">2 Samuel</option>
+                    <option value="1 Kings">1 Kings</option>
+                    <option value="2 Kings">2 Kings</option>
+                    <option value="1 Chronicles">1 Chronicles</option>
+                    <option value="2 Chronicles">2 Chronicles</option>
+                    <option value="Ezra">Ezra</option>
+                    <option value="Nehemiah">Nehemiah</option>
+                    <option value="Esther">Esther</option>
+                    <option value="Job">Job</option>
+                    <option value="Psalms">Psalms</option>
+                    <option value="Proverbs">Proverbs</option>
+                    <option value="Ecclesiastes">Ecclesiastes</option>
+                    <option value="Song of Solomon">Song of Solomon</option>
+                    <option value="Isaiah">Isaiah</option>
+                    <option value="Jeremiah">Jeremiah</option>
+                    <option value="Lamentations">Lamentations</option>
+                    <option value="Ezekiel">Ezekiel</option>
+                    <option value="Daniel">Daniel</option>
+                    <option value="Hosea">Hosea</option>
+                    <option value="Joel">Joel</option>
+                    <option value="Amos">Amos</option>
+                    <option value="Obadiah">Obadiah</option>
+                    <option value="Jonah">Jonah</option>
+                    <option value="Micah">Micah</option>
+                    <option value="Nahum">Nahum</option>
+                    <option value="Habakkuk">Habakkuk</option>
+                    <option value="Zephaniah">Zephaniah</option>
+                    <option value="Haggai">Haggai</option>
+                    <option value="Zechariah">Zechariah</option>
+                    <option value="Malachi">Malachi</option>
+                    <option value="Matthew">Matthew</option>
+                    <option value="Mark">Mark</option>
+                    <option value="Luke">Luke</option>
+                    <option value="John">John</option>
+                    <option value="Acts">Acts</option>
+                    <option value="Romans">Romans</option>
+                    <option value="1 Corinthians">1 Corinthians</option>
+                    <option value="2 Corinthians">2 Corinthians</option>
+                    <option value="Galatians">Galatians</option>
+                    <option value="Ephesians">Ephesians</option>
+                    <option value="Philippians">Philippians</option>
+                    <option value="Colossians">Colossians</option>
+                    <option value="1 Thessalonians">1 Thessalonians</option>
+                    <option value="2 Thessalonians">2 Thessalonians</option>
+                    <option value="1 Timothy">1 Timothy</option>
+                    <option value="2 Timothy">2 Timothy</option>
+                    <option value="Titus">Titus</option>
+                    <option value="Philemon">Philemon</option>
+                    <option value="Hebrews">Hebrews</option>
+                    <option value="James">James</option>
+                    <option value="1 Peter">1 Peter</option>
+                    <option value="2 Peter">2 Peter</option>
+                    <option value="1 John">1 John</option>
+                    <option value="2 John">2 John</option>
+                    <option value="3 John">3 John</option>
+                    <option value="Jude">Jude</option>
+                    <option value="Revelation">Revelation</option>
+                </select>
+            </div>
+            
+            <div class="row-span-1 col-span-1">
+                <label for="chapter" class="block mb-2 text-sm font-medium text-gray-900">Chapter</label>
+                <input type="number" name="chapter" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Chapter" required min="1"/>
+            </div>
+            
+            <div class="row-span-1 col-span-1">
+                <label for="verse" class="block mb-2 text-sm font-medium text-gray-900">Verse</label>
+                <input type="number" name="verse" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Verse" required min="1"/>
+            </div>
+            
+            <div class="col-span-2 row-span-1">
+                <label for="translation" class="block mb-2 text-sm font-medium text-gray-900">Translation</label>
+                <select name="translation" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    <option value="asv">American Standard Version (1901)</option>
+                    <option value="bbe">Bible in Basic English</option>
+                    <option value="kjv">King James Version</option>
+                    <option value="web">World English Bible (default)</option>
+                    <option value="ylt">Young's Literal Translation (NT only)</option>
+                    <option value="oeb-cw">Open English Bible, Commonwealth Edition</option>
+                    <option value="webbe">World English Bible, British Edition</option>
+                    <option value="oeb-us">Open English Bible, US Edition</option>
+                    <option value="almeida">João Ferreira de Almeida</option>
+                </select>
+            </div>
+            
+            <div class="col-span-2 max-h-fit">
+                <button type="submit" data-ripple-dark="true" class="bg-blue-600 rounded-lg my-auto text-white font-medium px-2 py-1 transition duration-300 hover:bg-transparent border-blue-600 border-2 hover:text-blue-600 w-full">Read</button>
+            </div>
+            
+            {% if msg %}
+            <p class="text-red-600 font-medium row-span-1 col-span-2">{{ msg }}</p>
+            {% endif %}
+            
+            </div>
+        </form>
         
-    <div class="w-auto flex justify-end">
-        <button type="submit" data-ripple-dark="true" class="bg-blue-600 rounded-lg text-white font-medium px-2 py-1 transition duration-300 hover:bg-transparent border-blue-600 border-2 hover:text-blue-600 w-full">Discover My Cat</button>
+    {% if verse_text %}
+    <div class="col-span-1 rounded-2xl p-7.5 shadow-lg bg-blue-200 mx-auto max-w-md">
+            <p><strong>{{ reference_verse }}:</strong> {{ verse_text }}</p>
     </div>
-
-    {% if msg %}
-
-    <p class="w-full text-red-600 font-medium">{{ msg }}</p>
-
     {% endif %}
 
-</form>
 
-{% if catURL %}
+</div>
 
-<div class="max-w-200 overflow-hidden h-fit border-1 border-gray-300 rounded-4xl my-12 mx-auto"><img src="{{ catURL }}" class="w-full" alt=""></div>
 
-{% endif %}
-
-<hr class="border-gray-400 my-6 h-px">
+<hr class="border-gray-400 h-px">
 
 {% endblock %}
